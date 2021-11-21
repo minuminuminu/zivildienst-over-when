@@ -1,5 +1,13 @@
+import { Test } from "./components/Test";
+import GlobalStyle from "./globalStyles";
+
 function App() {
-  return <p>Hello World</p>;
+  return (
+    <>
+      <GlobalStyle />
+      <Test />
+    </>
+  );
 }
 
 export default App;
