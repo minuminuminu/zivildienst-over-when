@@ -8,6 +8,13 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
+
+body{
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 `;
 
 export default GlobalStyle;
