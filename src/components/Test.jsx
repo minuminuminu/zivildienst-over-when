@@ -24,32 +24,40 @@ export const Test = () => {
     setTime(new Date());
   }
 
-  let switchFunc = (e) => {
+  let switchFunc = (e, year) => {
+    let schaltjahr;
+
+    if (year % 4 == 0) {
+      schaltjahr = true;
+    } else {
+      schaltjahr = false;
+    }
+
     switch (e) {
       case "1":
-        return "January";
+        return { name: "January", no: 1, days: 31 };
       case "2":
-        return "February";
+        return { name: "February", no: 2, days: schaltjahr ? 29 : 28 };
       case "3":
-        return "March";
+        return { name: "March", no: 3, days: 31 };
       case "4":
-        return "April";
+        return { name: "April", no: 4, days: 30 };
       case "5":
-        return "May";
+        return { name: "May", no: 5, days: 31 };
       case "6":
-        return "June";
+        return { name: "June", no: 6, days: 30 };
       case "7":
-        return "July";
+        return { name: "July", no: 7, days: 31 };
       case "8":
-        return "August";
+        return { name: "August", no: 8, days: 31 };
       case "9":
-        return "September";
+        return { name: "September", no: 9, days: 30 };
       case "10":
-        return "October";
+        return { name: "October", no: 10, days: 31 };
       case "11":
-        return "November";
+        return { name: "November", no: 11, days: 30 };
       case "12":
-        return "December";
+        return { name: "December", no: 12, days: 31 };
     }
   };
 
@@ -61,6 +69,8 @@ export const Test = () => {
       parseInt(specifiedMonth[1]) + (12 - parseInt(month[0]));
     console.log(calculatedMonth);
   };
+
+  // console.log(switchFunc("2", 2004));
 
   // calcEndTerm("24/04/2003");
 
