@@ -24,10 +24,6 @@ export const Test = () => {
     setTime(new Date());
   }
 
-  // if (time.toLocaleTimeString() == "1:52:25 PM") {
-  //   console.log("SUCCESS");
-  // }
-
   let switchFunc = (e) => {
     switch (e) {
       case "1":
@@ -57,8 +53,16 @@ export const Test = () => {
     }
   };
 
-  let bruh = time.toLocaleDateString().split("/");
-  // console.log("Monat: " + switchFunc(bruh[0]));
+  let calcEndTerm = (date) => {
+    /* date => f.e.: "24/04/2003" <= STRING */
+    let month = time.toLocaleString().split("/");
+    let specifiedMonth = date.split("/");
+    let calculatedMonth =
+      parseInt(specifiedMonth[1]) + (12 - parseInt(month[0]));
+    console.log(calculatedMonth);
+  };
+
+  // calcEndTerm("24/04/2003");
 
   return <CenterBody>{time.toLocaleString()}</CenterBody>;
 };
