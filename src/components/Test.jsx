@@ -25,27 +25,17 @@ export const Test = () => {
     setTime(new Date());
   }
 
-  let calcEndTerm = (date) => {
-    /* date => f.e.: "24/04/2003" <= STRING */
-    let month = time.toLocaleString().split("/");
-    let specifiedMonth = date.split("/");
-    let calculatedMonth =
-      parseInt(specifiedMonth[1]) + (12 - parseInt(month[0]));
-    console.log(calculatedMonth);
-  };
-
   let calcDate = (date) => {
     let month = time.toLocaleDateString().split("/");
     let specifiedMonth = date.split("/");
+    let result =
+      getMonthObj(month[0], month[2]).days - parseInt(specifiedMonth[0]);
 
-    specifiedMonth[0] - getMonthObj(month[1], month[2]).days;
-
-    console.log("Currently it's a " + getMonthObj(month[0], month[2]).name);
+    // console.log(getMonthObj(month[0], month[2]).name);
+    // console.log(result);
   };
 
-  // calcDate("24/04/2003");
-
-  // calcEndTerm("24/04/2003");
+  calcDate("24/04/2003");
 
   return <CenterBody>{time.toLocaleString()}</CenterBody>;
 };
