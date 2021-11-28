@@ -7,11 +7,17 @@ const CenterBody = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+`;
+
+const CurrentTime = styled.h1`
+  color: #ffffff;
+  margin-top: 3vh;
 `;
 
 export const Test = () => {
   const [time, setTime] = useState(new Date());
+  const [calculatedTime, setCalculatedTime] = useState(null);
 
   useEffect(() => {
     let timerID = setInterval(() => tick(), 1000);
@@ -41,6 +47,7 @@ export const Test = () => {
     let remainingDays =
       nowMonth.days - parseInt(now[0]) + parseInt(specifiedDate[0]);
     let remainingMonths = parseInt(specifiedDate[1]) + (12 - nowMonth.no);
+
     // console.log(
     //   `${remainingMonths - 1} months and ${remainingDays} days left!`
     // );
@@ -48,5 +55,9 @@ export const Test = () => {
 
   calcDate("24/04/2021");
 
-  return <CenterBody>{time.toLocaleString()}</CenterBody>;
+  return (
+    <CenterBody>
+      <CurrentTime>{time.toLocaleString()}</CurrentTime>
+    </CenterBody>
+  );
 };
