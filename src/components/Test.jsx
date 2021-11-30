@@ -35,10 +35,13 @@ export const Test = () => {
     let now = time.toLocaleDateString().split("/");
     let specifiedDate = date.split("/");
 
+    console.log(now);
+
     let nowMonth = {
       no: getMonthObj(now[1], now[2]).no,
       days: getMonthObj(now[1], now[2]).days,
     };
+
     let specifiedMonth = {
       no: getMonthObj(date[1], date[2]).no,
       days: getMonthObj(date[1], date[2]).days,
